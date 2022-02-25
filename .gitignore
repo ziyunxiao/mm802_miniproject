@@ -43,4 +43,5 @@ nodeLanguageServer/**
 nodeLanguageServer.*/**
 dist/**
 
+.vscode/
 *.csv
