@@ -40,6 +40,8 @@ def load_data(nrows):
 
 data = load_data(100000)
 
+st.dataframe(data.head(20))
+
 # CREATING FUNCTION FOR MAPS
 
 def map(data, lat, lon, zoom):
@@ -93,6 +95,7 @@ newark = [40.7090, -74.1805]
 zoom_level = 12
 midpoint = (np.average(data["lat"]), np.average(data["lon"]))
 
+st.dataframe(data.head(10))
 with row2_1:
     st.write("**All New York City from %i:00 and %i:00**" % (hour_selected, (hour_selected + 1) % 24))
     map(data, midpoint[0], midpoint[1], 11)

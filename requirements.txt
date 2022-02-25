@@ -5,3 +5,4 @@ sklearn
 seaborn
 ipykernel
 streamlit
+bokeh==2.4.1
