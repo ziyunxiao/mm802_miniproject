@@ -34,7 +34,7 @@ with row1_2:
     st.write(
     """
     ##
-    This project is make an assumption that someone who newly comes to the city of Edmonton. 
+    This project is based on an assumption that someone who newly comes to the city of Edmonton. 
     He/She is looking for a house. This tool will help them to find a house based on the average price of single house and crimes for a neighbourhood.
     """)
 

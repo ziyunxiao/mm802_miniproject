@@ -1,5 +1,8 @@
 # Introduction
 
+## Access online
+You can access the app from [here](https://share.streamlit.io/ziyunxiao/mm802_miniproject/app.py)
+
 # Setup
 The sample commands is based on Windows environment. If you run under Linux you might need change some commands.
 ## prequirement
