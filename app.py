@@ -10,7 +10,7 @@ import pickle as pkl
 import bokeh.plotting as bokplt
 
 # SETTING PAGE CONFIG TO WIDE MODE
-st.set_page_config(page_title='Find the good neighbourhood', layout = 'wide', initial_sidebar_state = 'auto')
+st.set_page_config(page_title='Find a good neighbourhood to live at Edmonton', layout = 'wide', initial_sidebar_state = 'auto')
 # st.beta_set_page_config(page_title='Find the good neighbourhood', page_icon = favicon, layout = 'wide', initial_sidebar_state = 'auto')
 
 
@@ -34,12 +34,13 @@ with row1_2:
     st.write(
     """
     ##
-    This project is make an assumption that someone who newly comes to the city of Edmonton. He/She is looking for a house. This tool will help them to find a house based on the neighbourhood and crimes.
+    This project is make an assumption that someone who newly comes to the city of Edmonton. 
+    He/She is looking for a house. This tool will help them to find a house based on the average price of single house and crimes for a neighbourhood.
     """)
 
 # Q1
-st.markdown("# Q1: Get top 10 neighborhood based on Average single house price")
-price_range = st.slider( 'Select a range of values(x 1000)',  200, None, (300,600),step=10)
+st.markdown("# Q1: Get top 10 neighborhood based on your budget")
+price_range = st.slider( 'Select a range of values(x 1000)',  200, 2000, (300,600),step=10)
 df1 = data.loc[(data['value']>=price_range[0] * 1000) & (data['value']<= price_range[1] * 1000),["neighbourhood","value"]]
 st.write(price_range)
 st.dataframe(df1)
@@ -51,7 +52,7 @@ def show_q2():
         & (data['crimes'] <=crime_num ),["neighbourhood","value","crimes"]]
     return df2
 
-st.markdown("# Q2: Get top 10 neighborhood based single house price & crime occurances")
+st.markdown("# Q2: Get top 10 neighborhood that has less crimes")
 crime_num = st.slider( 'crime number no bigger than',  0, None, 10,step=1,on_change=show_q2)
 st.write(crime_num)
 df2 = show_q2()
@@ -69,6 +70,7 @@ st.dataframe(df2)
 
 # Q3
 st.markdown("# Q3: Overall Sorting by price and crimes.")
+st.markdown("")
 top_n = st.slider( 'show top N results',  1, 50, 5,step=1)
 df3 = data.loc[(data['value']>=price_range[0] * 1000) & (data['value']<= price_range[1] * 1000 ) \
     ,["neighbourhood","value","crimes","lat","lon"]]
@@ -80,6 +82,8 @@ st.table(df3.head(top_n))
 st.markdown("# Show Neighbour on map")
 
 # CREATING FUNCTION FOR MAPS
+# https://pydeck.gl/layer.html
+# 
 def map(data, lat, lon, zoom):
     st.write(pdk.Deck(
         map_style="mapbox://styles/mapbox/light-v9",
