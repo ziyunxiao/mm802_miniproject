@@ -31,11 +31,11 @@ with row1_1:
     st.title("Edmonton Housing Searching Tool")
 
 with row1_2:
-    st.write(
+    st.markdown(
     """
-    ##
     This project is based on an assumption that someone who newly comes to the city of Edmonton. 
     He/She is looking for a house. This tool will help them to find a house based on the average price of single house and crimes for a neighbourhood.
+    The source code is [here](https://github.com/ziyunxiao/mm802_miniproject)
     """)
 
 # Q1
