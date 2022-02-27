@@ -1,4 +1,12 @@
 # Introduction
+This project is for MM802 mini project. 
+The data source is from https://data.edmonton.ca/.
+
+1. [Edmonton Property Assessment Data](https://data.edmonton.ca/City-Administration/Property-Assessment-Data-Current-Calendar-Year-/q7d6-ambg/data)
+2. [EPS Neighbourhood Criminal Occurrences](https://dashboard.edmonton.ca/dataset/EPS-Neighbourhood-Criminal-Occurrences/xthe-mnvi/data)
+
+For details, how the data is prepared please read `data_preparation.ipynb`.
+
 
 ## Access online
 You can access the app from [here](https://share.streamlit.io/ziyunxiao/mm802_miniproject/app.py)
