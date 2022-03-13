@@ -35,7 +35,7 @@ with row1_2:
     """
     This project is developed for newcomers to find a house in the city of Edmonton. 
     This tool can help them to find a house based on the average price of single 
-    house and the number of crimes for a neighbourhood.
+    houses and the number of crimes occurred in a neighbourhood.
     The source code is [here](https://github.com/ziyunxiao/mm802_miniproject)
     """)
 
@@ -53,8 +53,9 @@ def show_q2():
         & (data['crimes'] <=crime_num ),["neighbourhood","crimes"]]
     return df2
 
-st.markdown("## Step 2 (Q2): Select Neighborhoods Based on Numbers of Crime Following Step 1")
-crime_num = st.slider( 'List neighborhoods that have numbers of crime are no more than the threshhold value within the search results of step 1.',  0, None, 10,step=1,on_change=show_q2)
+st.markdown("## Step 2 (Q2): Select Neighborhoods Based on Numbers of Crimes Following Step 1")
+st.markdown("The number of crimes in a neighbourhood is the total number of crimes occurred from 2010 to 2019.")
+crime_num = st.slider( 'List neighborhoods that have numbers of crimes are no more than the threshhold value within the search results of step 1.',  0, None, 10,step=1,on_change=show_q2)
 st.write(crime_num)
 df2 = show_q2()
 st.dataframe(df2)
