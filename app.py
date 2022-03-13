@@ -35,7 +35,7 @@ with row1_2:
     """
     This project is developed for newcomers to find a house in the city of Edmonton. 
     This tool can help them to find a house based on the average price of single 
-    house and the number of crimes for a neighbourhood.
+    houses and the number of crimes occurred in a neighbourhood.
     The source code is [here](https://github.com/ziyunxiao/mm802_miniproject)
     """)
 
