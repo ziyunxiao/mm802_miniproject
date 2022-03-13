@@ -50,7 +50,7 @@ st.dataframe(df1)
 # Q2
 def show_q2():
     df2 = data.loc[(data['value']>=price_range[0] * 1000) & (data['value']<= price_range[1] * 1000 ) \
-        & (data['crimes'] <=crime_num ),["neighbourhood","value","crimes"]]
+        & (data['crimes'] <=crime_num ),["neighbourhood","crimes"]]
     return df2
 
 st.markdown("# Q2: Select Neighborhoods Based on Numbers of Crime")
