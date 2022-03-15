@@ -28,26 +28,26 @@ data = load_data('./prop_crime.pkl')
 row1_1, row1_2 = st.columns((2,3))
 
 with row1_1:
-    st.title("Edmonton Housing Searching Tool")
+    st.title("Edmonton Neighbourhood Searching Tool")
 
 with row1_2:
     st.markdown(
     """
-    This project is developed for newcomers to find a house in the city of Edmonton. 
-    This tool can help them to find a house based on the average price of single 
+    This project is developed for Edmontonians to search a Neighbourhood in the city of Edmonton. 
+    This tool can help them to find a Neighbourhood to live in based on the average price of single 
     houses and the number of crimes occurred in a neighbourhood.
     The source code is [here](https://github.com/ziyunxiao/mm802_miniproject)
     """)
 
-# Q1
+# Step1/Q1
 st.markdown("## Step 1 (Q1): Select Neighborhoods Based on Budget")
-price_range = st.slider( 'List neighborhoods in a range of house prices (x 1000$).',  200, 2000, (300,600), step=10)
+price_range = st.slider( 'List neighborhoods in a range of average house prices (x 1000$).',  200, 2000, (300,600), step=10)
 df1 = data.loc[(data['value']>=price_range[0] * 1000) & (data['value']<= price_range[1] * 1000),["neighbourhood","value"]]
 st.write(price_range)
 st.dataframe(df1)
 
 
-# Q2
+# Step2/Q2
 def show_q2():
     df2 = data.loc[(data['value']>=price_range[0] * 1000) & (data['value']<= price_range[1] * 1000 ) \
         & (data['crimes'] <=crime_num ),["neighbourhood","crimes"]]
@@ -70,7 +70,7 @@ st.dataframe(df2)
     # p.line(df2["neighbourhood"],df2["value"])
     # st.bokeh_chart(p)
 
-# Q3
+# Step3/Q3
 st.markdown("## Step 3 (Q3): Neighbourhood Ranking Based on Price-Crime Index Following Step 1")
 st.markdown("")
 top_n = st.slider( 'List top N neighbourhoods based on the Price-Crime Index within the search results of step 1. This index is defined as the average house price of a neighbourhood over its number of crimes.',  1, 50, 5,step=1)
@@ -80,7 +80,7 @@ df3['score'] =  df3['value']/ df3['crimes']
 df3.sort_values(by = 'score',  ascending = False, inplace = True)
 st.table(df3.head(top_n))
 
-# show Neighbour on map
+# Step4/Q4: show Neighbourhoods on map
 st.markdown("## Show Locations of Interested Neighbourhoods")
 st.markdown('Show the locations of neighbourhoods that were defined in step 3.')
 # CREATING FUNCTION FOR MAPS
