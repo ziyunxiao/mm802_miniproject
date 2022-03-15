@@ -28,14 +28,14 @@ data = load_data('./prop_crime.pkl')
 row1_1, row1_2 = st.columns((2,3))
 
 with row1_1:
-    st.title("Edmonton Neighbourhood Searching Tool")
+    st.title("Edmonton Neighborhood Searching Tool")
 
 with row1_2:
     st.markdown(
     """
-    This project is developed for Edmontonians to search a Neighbourhood in the city of Edmonton. 
-    This tool can help them to find a Neighbourhood to live in based on the average price of single 
-    houses and the number of crimes occurred in a neighbourhood.
+    This project is developed for Edmontonians to search a neighborhood in the city of Edmonton. 
+    This tool can help them to find a neighborhood to live in based on the average price of single 
+    houses and the number of crimes occurred in a neighborhood.
     The source code is [here](https://github.com/ziyunxiao/mm802_miniproject)
     """)
 
@@ -54,7 +54,7 @@ def show_q2():
     return df2
 
 st.markdown("## Step 2 (Q2): Select Neighborhoods Based on Numbers of Crimes Following Step 1")
-st.markdown("The number of crimes in a neighbourhood is the total number of crimes occurred from 2010 to 2019.")
+st.markdown("The number of crimes in a neighborhood is the total number of crimes occurred from 2010 to 2019.")
 crime_num = st.slider( 'List neighborhoods that have numbers of crimes are no more than the threshhold value within the search results of step 1.',  0, None, 10,step=1,on_change=show_q2)
 st.write(crime_num)
 df2 = show_q2()
@@ -71,9 +71,9 @@ st.dataframe(df2)
     # st.bokeh_chart(p)
 
 # Step3/Q3
-st.markdown("## Step 3 (Q3): Neighbourhood Ranking Based on Price-Crime Index Following Step 1")
+st.markdown("## Step 3 (Q3): Neighborhood Ranking Based on Price-Crime Index Following Step 1")
 st.markdown("")
-top_n = st.slider( 'List top N neighbourhoods based on the Price-Crime Index within the search results of step 1. This index is defined as the average house price of a neighbourhood over its number of crimes.',  1, 50, 5,step=1)
+top_n = st.slider( 'List top N neighborhoods based on the Price-Crime Index within the search results of step 1. This index is defined as the average house price of a neighbourhood over its number of crimes.',  1, 50, 5,step=1)
 df3 = data.loc[(data['value']>=price_range[0] * 1000) & (data['value']<= price_range[1] * 1000 ) \
     , ["neighbourhood","value","crimes","lat","lon"]]
 df3['score'] =  df3['value']/ df3['crimes']
@@ -81,8 +81,8 @@ df3.sort_values(by = 'score',  ascending = False, inplace = True)
 st.table(df3.head(top_n))
 
 # Step4/Q4: show Neighbourhoods on map
-st.markdown("## Show Locations of Interested Neighbourhoods")
-st.markdown('Show the locations of neighbourhoods that were defined in step 3.')
+st.markdown("## Show Locations of Interested Neighborhoods")
+st.markdown('Show the locations of neighborhoods that were defined in step 3.')
 # CREATING FUNCTION FOR MAPS
 # https://pydeck.gl/layer.html
 # 
