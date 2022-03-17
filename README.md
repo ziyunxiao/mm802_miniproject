@@ -11,10 +11,15 @@ For details, how the data is prepared please read `data_preparation.ipynb`.
 ## Access online
 You can access the app from [here](https://share.streamlit.io/ziyunxiao/mm802_miniproject/app.py)
 
+
+## Reading the Report
+Please read the [report.pdf](./report.pdf)
+
 # Setup
-The sample commands is based on Linux.
+The sample commands is based on Linux. If you are running on other OS you might need update the commands accordingly.
+
 ## prequirement
-Python 3.9
+Python 3.8+
 
 ## Setup project
 1. clone the project `git clone https://github.com/ziyunxiao/mm802_miniproject.git`
@@ -26,4 +31,3 @@ Python 3.9
 7. Start web server `streamlit run app.py --server.port 8080`
 8. open browser and access [http://localhost:8080/](http://localhost:8080/)
 
-# 
